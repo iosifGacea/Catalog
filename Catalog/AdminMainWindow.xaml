@@ -1,0 +1,48 @@
+﻿<Window x:Class="Catalog.AdminMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Catalog"
+        mc:Ignorable="d"
+        Title="AdminMainWindow" Height="450" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="750"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="1150"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Height="30">
+            <MenuItem Header="_Insert" FontFamily="MV Boli" FontSize="17">
+                <MenuItem Header="_student" Click="insert_student"/>
+                <MenuItem Header="_teacher" Click="insert_teacher"/>
+                <MenuItem Header="_class" Click="insert_class"/>
+                <MenuItem Header="_subject" Click="insert_subject"/>
+                <MenuItem Header="_grade" Click="insert_grade"/>
+            </MenuItem>
+            <MenuItem Header="_Delete" FontFamily="MV Boli" FontSize="17">
+                <MenuItem Header="_student" Click="delete_student" />
+                <MenuItem Header="_teacher" Click="delete_teacher"/>
+                <MenuItem Header="_class" Click="delete_class"/>
+                <MenuItem Header="_subject" Click="delete_subject"/>
+            </MenuItem>
+        </Menu>
+        <Button x:Name="_STUDENTS" Grid.Row="1" Grid.Column="0" Content="_STUDENTS" Click="_STUDENTS_click"/>
+        <Button x:Name="_TEACHERS" Grid.Row="2" Grid.Column="0" Content="_TEACHERS" Click="_TEACHERS_click"/>
+        <Button x:Name="_CLASSES" Grid.Row="3" Grid.Column="0" Content="_CLASSES" Click="_CLASSES_click"/>
+        <Button x:Name="_SUBJECTS" Grid.Row="4" Grid.Column="0" Content="_SUBJECTS" Click="_SUBJECTS_click"/>
+
+        <ListBox x:Name="mainList" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" ItemsSource="{Binding}" DisplayMemberPath="Name" Height="360" VerticalAlignment="Top" SelectionChanged="mainList_SelectionChanged">
+            <!--<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible" />-->
+        </ListBox>
+        <TextBlock x:Name="details" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" Text="{Binding}" />
+    </Grid>
+</Window>

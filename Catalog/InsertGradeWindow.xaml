@@ -1,0 +1,39 @@
+﻿<Window x:Class="Catalog.InsertGradeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Catalog"
+        mc:Ignorable="d"
+        Title="InsertGradeWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="375"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="student:"/>
+        <ComboBox x:Name="studentBox" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding}" DisplayMemberPath="Name"/>
+        <TextBlock  Text="{Binding ElementName=studentBox, Path=SelectedItem}"/>
+        
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="subject:"/>
+        <ComboBox x:Name="subjectBox" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding}" DisplayMemberPath="Name"/>
+        <TextBlock Text="{Binding ElementName=subjectBox, Path=SelectedItem}"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="teacher:"/>
+        <ComboBox x:Name="teacherBox" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding}" DisplayMemberPath="Name"/>
+        <TextBlock Text="{Binding ElementName=teacherBox, Path=SelectedItem}"/>
+        
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="grade:"/>
+        <TextBox x:Name="gradeBox" Grid.Row="4" Grid.Column="1"/>
+        
+        <Button x:Name="save" Grid.Row="5" Grid.Column="1" Content="save" Click="save_Click"/>
+    </Grid>
+</Window>
